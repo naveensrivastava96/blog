@@ -1,0 +1,18 @@
+
+<div class="container" >
+  <div class="row">
+    <div class="col">
+<app-category  (getCategory)="getCategory($event)"></app-category>
+    </div>
+    <div class="col-6">
+
+      <app-blog-div [data]="data"></app-blog-div>
+
+    </div>
+    <div class="col-4" style="width:400px;height: 690px">
+    <app-form></app-form>
+
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,66 @@
+
+<div class="col-md-6 col-xxs-12 col-smm-4 post-item lm vp" *ngFor="let blog of blogItems" style="height: 550px;width:100%;margin-top: 31px ">
+  <a class="image" [id]="blog.id"  href="">
+    <div class="cat3" style="background: transparent;">
+      <div class="ximg"   style=""><img style="width: 100%;height:100%" src="{{blog.logo}}"></div>
+      <div class="x"><p class="over">{{blog.category}}</p></div>
+    </div>
+  </a>
+  <p class="date">{{blog.date}}</p>
+
+  <p class="description">
+    <a href="">{{blog.name}}
+      </a><br>
+    <a href="">{{blog.title}}
+      </a><br>
+    {{blog.content}}
+    <br>
+    <a routerLink="/update/{{blog.id}}" class="colorR " style="float: left;font-family: 'Arial Rounded MT Bold';font-size: medium;">Update
+      <!--<div class="readmeSection"> <span>Update</span><i class="arrowread"></i> <i class="status cat3"></i></div>-->
+    </a><i class="arrowread" style="margin-bottom: 5px"></i> <i class="status cat3"></i><br>
+
+    <app-star-rating [customid] = "blog.id"></app-star-rating>
+
+
+
+  </p>
+ <!--<div style="width:200px;margin-bottom:10px;height: 100px;" >-->
+  <!---->
+<!--</div>-->
+
+  <a class="readmore colorR cat3"  (click)="deleteBlog($event,blog.id)">
+    <div class="readmeSection"> <span>delete</span><i class="arrowread"></i> <i class="status cat3"></i></div>
+  </a>
+
+  <!--<a class="readmore colorR cat3"  routerLink="/update/{{blog.id}}">Update-->
+    <!--&lt;!&ndash;<div class="readmeSection"> <span>Update</span><i class="arrowread"></i> <i class="status cat3"></i></div>&ndash;&gt;-->
+  <!--</a>-->
+
+
+
+</div>
+
+
+
+
+
+<div class="col-md-6 col-xxs-12 col-smm-4 post-item lm vp" style="height: 485px;width:100%;margin-top: 31px ">
+  <a class="image" href="">
+    <div class="cat667" style="background: transparent;">
+      <div class="ximg" style="background-image:url(https://static-wix-blog.wix.com/blog/wp-content/uploads/2017/10/Types-of-Marketing-strategies-for-small-businesses_Featured-720x411.png)"></div>
+      <div class="x"><p class="over">Managemnet Blog</p></div>
+    </div>
+  </a>
+  <p class="date">16-NOV-2017</p>
+
+  <p class="description">
+    <a href="">
+      Author Name</a><br>
+    <a href="">
+      Title Of Blog</a><br>
+    <app-star-rating></app-star-rating>
+  </p>
+  <a class="readmore colorR cat3" href="">
+    <div class="readmeSection"> <span>Read More</span><i class="arrowread"></i> <i class="status cat3"></i></div>
+  </a>
+</div>

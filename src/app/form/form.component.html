@@ -1,0 +1,49 @@
+<div id="contact-form">
+  <div>
+    <h1>HiBlogers!!</h1>
+    <h4>Add your thoughts to our World</h4>
+  </div>
+  <p id="failure">Oopsie...Can't add your blog!!.</p>
+  <p id="success">Your blog was added successfully. Thank you!</p>
+
+  <div>
+    <div>
+      <label >
+        <span class="required">Name: *</span>
+        <input type="text" id="name" #name  value="" placeholder="Your Name" required="required" tabindex="1"  />
+      </label>
+    </div>
+    <div>
+      <label >
+        <span class="required">Title: *</span>
+        <input type="text" id="title" #title   value="" placeholder="Your title" tabindex="2" required="required" />
+      </label>
+    </div>
+    <div>
+      <label >
+        <span class="required">Category: * </span>
+        <select id="category" #category tabindex="4">
+          <option value="Technical">Technical</option>
+          <option value="Management">Management</option>
+          <option value="Sports">Sports</option>
+          <option value="Social">Social</option>
+          <option value="Political">Political</option>
+          <option value="Medical">Medical</option>
+        </select>
+      </label>
+    </div>
+    <div>
+      <label>
+        <span class="required" >Content: *</span>
+        <textarea #content placeholder="Please write your content here." tabindex="5" required="required"></textarea>
+      </label>
+    </div>
+    <div>
+      <input type="file" #imageFile />
+    </div>
+    <div>
+      <button  #submit id="submit"  (click)="getFromData(name.value,title.value,category.value,content.value,imageFile.files)">Add</button>
+    </div>
+  </div>
+
+</div>

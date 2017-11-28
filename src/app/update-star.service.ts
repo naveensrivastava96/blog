@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Http,Headers} from "@angular/http";
 import 'rxjs/add/operator/map';
-const url="http://localhost:3000/blogs";
+const url="https://naveenjson-server.herokuapp.com/blogs";
 const header = { headers: new Headers({'Content-Type': 'application/json' , 'Accept': 'q=0.8;application/json;q=0.9'})};
 
 @Injectable()

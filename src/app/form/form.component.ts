@@ -31,12 +31,13 @@ export class FormComponent implements OnInit {
 
       }
 console.log("this is "+Obj);
-      this.storeDataInDb.postData(Obj).subscribe( data => {console.log(data);});
+      this.storeDataInDb.postData(Obj).subscribe( data => {console.log(data);
+        window.location.href = "/";});
 
   }
   fileReader.readAsDataURL(image[0]);
 
-    window.location.href = "/";
+
   }
 
 

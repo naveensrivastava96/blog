@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {StoreDataInDbService} from "../store-data-in-db.service";
 
 
@@ -11,12 +11,11 @@ export class NavBarComponent implements OnInit {
 
   heading='';
   data: Object[];
+  @Output() emit =new EventEmitter<Object>();
   constructor(private storedataindb:StoreDataInDbService) { }
 
   ngOnInit() {
-    this.storedataindb.get().subscribe(x => {
-      this.data = x;
-    });
+
   }
 
   search(val: string) {
@@ -25,13 +24,16 @@ export class NavBarComponent implements OnInit {
       this.storedataindb.get().subscribe(x => {
         this.data = x.filter(function (item) {
           return (item.title.toLocaleLowerCase().indexOf(val.toLocaleLowerCase()) !== -1);
+
         });
+        this.emit.emit(this.data);
       });
     }
 
     if (val.trim() === '') {
       this.storedataindb.get().subscribe(x => {
         this.data = x;
+        this.emit.emit(this.data);
       });
     }
   }

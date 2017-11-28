@@ -1,6 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import { UpdateStarService} from "../update-star.service";
 // import {RadioControlValueAccessor} from "./radio_value_accessor";
+
 
 @Component({
   selector: 'app-star-rating',
@@ -12,6 +13,19 @@ export class StarRatingComponent implements OnInit {
   @Input() 'customid' ;
   noId;
   @Input() 'blogItems'
+  @Input() rating
+  @Output() emitter = new EventEmitter<number>();
+
+
+  addarr(rating)
+  {
+    let arr=[]
+    for(let i=0;i<rating;i++)
+    {
+      arr[i]=i;
+    }
+    return arr;
+  }
 
 
   constructor(private updateStar: UpdateStarService) {
@@ -32,7 +46,9 @@ export class StarRatingComponent implements OnInit {
     };
 
     console.log(this.noId);
-    this.updateStar.UpdateData(starsToUpdate,this.noId).subscribe( data => {console.log(data);});
+    this.updateStar.UpdateData(starsToUpdate,this.noId).subscribe( data => {console.log(data);
+    this.emitter.emit(stars);
+    });
     console.log("updated");
   }
 

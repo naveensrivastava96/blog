@@ -18,6 +18,13 @@ export class BodyComponent implements OnInit {
     });
 
   }
+
+  changestar(star)
+  {
+    this.storeService.get().subscribe(x => {
+      this.data = x;
+    });
+  }
   getCategory(category: string) {
     if (category === 'All') {
 

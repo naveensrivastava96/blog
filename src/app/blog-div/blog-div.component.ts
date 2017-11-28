@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
+import {Component, Input, OnInit, ViewEncapsulation,Output,EventEmitter} from '@angular/core';
 import {StoreDataInDbService} from "../store-data-in-db.service";
 import {DeletefromdbService} from "../deletefromdb.service";
 import {ActivatedRoute} from "@angular/router";
@@ -21,6 +21,7 @@ export class BlogDivComponent implements OnInit {
 
   }
   blogItems: Object[];
+  @Output() emitter = new EventEmitter<number>();
   ngOnInit() {
 
     this.storeDataInDb.get().subscribe(data => {
@@ -37,4 +38,11 @@ export class BlogDivComponent implements OnInit {
     this.deletefromdb.delete(Id).subscribe(data =>{console.log(data)});
     window.location.href = "/";
   }
+
+  changestar(star)
+  {
+    this.emitter.emit(star)
+  }
+
+
 }

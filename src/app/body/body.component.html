@@ -1,3 +1,8 @@
+<div class="container-fluid" style="background: no-repeat;height:400px; width:1280px;
+border-bottom:1px lightgrey solid;background-image: url(../../assets/images/slide-image-5-1280x400.jpg)" >
+
+  <app-nav-bar (emit)="data=$event"></app-nav-bar>
+</div>
 
 <div class="container" >
   <div class="row">
@@ -6,7 +11,7 @@
     </div>
     <div class="col-6">
 
-      <app-blog-div [data]="data"></app-blog-div>
+      <app-blog-div [data]="data" (emitter)="changestar($event)"></app-blog-div>
 
     </div>
     <div class="col-4" style="width:400px;height: 690px">
